@@ -13,7 +13,7 @@ This project is to launch a Wordpress Instance on Ubuntu LAMP Server.
 
 The task is deployed under two phases,
 
-   1) Deploy the EC2 instance  : Using Terraform  (Terraform v0.9.11 )
+   1) Deploy the EC2 instance  : Using Terraform  (Terraform v0.9.11 )(Launches Ubuntu Server using ami-099fe766)
    2) Deploy the WordPress on LAMP : Using Ansible (Ansible v2.2.0.0)
 
 
@@ -24,7 +24,7 @@ The task is deployed under two phases,
   
   (B) Terraform provisions the following services under AWS
       (a) A security group for Wordpress instance to allow port 80 and 22 traffic
-      (b) A EC2 Instance (Ubuntu 16.04.2 LTS \n \) with Public & Private IP addresses
+      (b) A EC2 Instance (Ubuntu 16.04.2 LTS \n \) with Public & Private IP addresses Using AMI **ami-099fe766**
       (c) Associate a key to the provisioned EC2 for getting ssh access. User by default will be "ubuntu". Keys are          saved under 'keys' directory
       (d) Once the deployment is done, using 'local-exec' terraform updates Ansible hosts file with new EC2 
           instance's public IP address and trigger Ansible
