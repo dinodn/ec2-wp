@@ -1,0 +1,27 @@
+---
+# tasks file for mysql
+- name: Update MySQL root password for all root accounts
+  mysql_user: name=root host={{ item }} password={{ mysql_root_pass }} state=present
+  with_items:
+     - "{{ ansible_hostname }}"
+     - 127.0.0.1
+     - ::1
+     - localhost
+  sudo: yes
+
+- name: Copy the root credentials as .my.cnf file
+  template: src=root.cnf.j2 dest=/root/.my.cnf mode=0600
+  sudo: yes
+
+- name: Create mysql database
+  mysql_db: name={{ wp_mysql_db }} state=present
+  sudo: yes
+
+- name: Create mysql user
+  mysql_user:
+    name={{ wp_mysql_user }}
+    password={{ wp_mysql_password }}
+    priv=*.*:ALL
+  sudo: yes
+  notify:
+    - Restart MySQL
