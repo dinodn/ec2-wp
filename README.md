@@ -9,6 +9,8 @@ Contact : dinodaniel.in@gmail.com
 
 This project is to launch a Wordpress Instance on Ubuntu LAMP Server.
 
+**Scripts are under terraform directory**
+
 The task is deployed under two phases,
 
    1) Deploy the EC2 instance  : Using Terraform  (Terraform v0.9.11 )
@@ -16,9 +18,9 @@ The task is deployed under two phases,
 
 
 
-(I) STAGE 1  Deploy EC2 instance
+**(I) STAGE 1  Deploy EC2 instance**
 
-  (A) AWS instance keys to authenticate should be added under ~/.aws/credentials 
+  (A) **AWS instance keys to authenticate should be added under ~/.aws/credentials**
   
   (B) Terraform provisions the following services under AWS
       (a) A security group for Wordpress instance to allow port 80 and 22 traffic
@@ -27,7 +29,7 @@ The task is deployed under two phases,
       (d) Once the deployment is done, using 'local-exec' terraform updates Ansible hosts file with new EC2 
           instance's public IP address and trigger Ansible
 
-(II) STAGE 2 Deploy LAMP & Wordpress on EC2
+**(II) STAGE 2 Deploy LAMP & Wordpress on EC2**
     
    (A) Ansible access to EC2 instance using 'ubuntu' user and deploys Apache, Mysql & PHP first
    (B) Downloads and install Wordpress
@@ -36,7 +38,7 @@ The task is deployed under two phases,
 TO DEPLOY :
 
 
-1) ENSURE KEYS ARE ADDED AS MENTIONED IN POINT I.A
+*1) ENSURE KEYS ARE ADDED AS MENTIONED IN POINT I.A*
 
 2) RUN terraform plan to see the computing path
 
