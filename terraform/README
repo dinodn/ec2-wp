@@ -15,6 +15,7 @@ The task is deployed under two phases,
 (I) STAGE 1  Deploy EC2 instance
 
   (A) AWS instance keys to authenticate should be added under ~/.aws/credentials 
+      Add admin_key ssh keys under keys directory, (should be as admin_key admin_key.pub)
   
   (B) Terraform provisions the following services under AWS
       (a) A security group for Wordpress instance to allow port 80 and 22 traffic
